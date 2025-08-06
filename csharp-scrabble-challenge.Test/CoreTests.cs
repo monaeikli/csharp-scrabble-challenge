@@ -5,7 +5,11 @@ namespace csharp_scrabble_challenge.Test
 {
     [TestFixture]
     public class CoreTests
-    {        
+    {
+        [TestCase("[{h}o1s{e}]", 0)] // error case (zero for errors)
+        [TestCase("{h}ous{e}", 13)]
+        [TestCase("[{h}ous{e}]", 39)]
+        [TestCase("[h}ous{e}]", 0)] //Error case (zero for errors)
         [TestCase("", 0)]
         [TestCase(" ", 0)]
         [TestCase(" \t\n", 0)]
